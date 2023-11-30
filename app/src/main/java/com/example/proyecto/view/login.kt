@@ -18,6 +18,7 @@ import androidx.compose.material.icons.rounded.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -134,3 +135,13 @@ fun login(loginViewModel: LoginViewModel) {
     }
 }
 
+
+
+@Composable
+fun help(){
+
+    //hacer boton help para aistenca
+    FloatingActionButton(onClick = { /*TODO*/ }) {
+        //Icon(painter = , contentDescription = )
+    }
+}
