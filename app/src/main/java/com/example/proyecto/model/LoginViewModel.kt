@@ -1,4 +1,4 @@
-package com.example.pmdm_login.logic
+package com.example.proyecto.model
 
 import android.util.Patterns
 import androidx.lifecycle.LiveData
@@ -7,17 +7,19 @@ import androidx.lifecycle.ViewModel
 
 class LoginViewModel  : ViewModel() {
 
-
-
     private var _user = MutableLiveData("")
-
     val user: LiveData<String> = _user
 
 
     private var _password = MutableLiveData("")
-
     val password: LiveData<String> = _password
 
+    private var _location = MutableLiveData("")
+    val location: LiveData<String> = _location
+
+    fun setLocation(location: String){
+        _location.value = location
+    }
 
     fun setUser(user: String) {
         _user.value = user
@@ -39,5 +41,13 @@ class LoginViewModel  : ViewModel() {
     fun checkEmail(): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(_user.value).matches()
     }
+
+
+    fun checkUser(): Boolean {
+        if (checkUser() && checkUser()){return true}
+        return false
+    }
+
+
 
 }

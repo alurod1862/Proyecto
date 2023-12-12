@@ -1,4 +1,4 @@
-package com.example.pmdm_login.logic
+package com.example.proyecto.view
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -18,7 +18,6 @@ import androidx.compose.material.icons.rounded.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -38,17 +37,20 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.proyecto.model.LoginViewModel
 import com.example.proyecto.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun login(loginViewModel: LoginViewModel) {
+fun login(loginViewModel: LoginViewModel,navController: NavController) {
 
     val user by loginViewModel.user.observeAsState(initial = "")
 
     val password by loginViewModel.password.observeAsState(initial = "")
 
-    var visible = loginViewModel.checkEmail() && loginViewModel.checkPassword()
+    var visible = true    /*loginViewModel.checkEmail() && loginViewModel.checkPassword()*/
+
 
     Column(
         modifier = Modifier
@@ -120,7 +122,9 @@ fun login(loginViewModel: LoginViewModel) {
 
 
         Button(
-            onClick = {},
+            onClick = {
+                      navController.navigate("options")
+            },
             enabled = visible,
             shape = RoundedCornerShape(23.dp),
             border = BorderStroke(3.dp, MaterialTheme.colorScheme.primary),
@@ -132,16 +136,5 @@ fun login(loginViewModel: LoginViewModel) {
                 modifier = Modifier.padding(horizontal = 30.dp, vertical = 6.dp),
             )
         }
-    }
-}
-
-
-
-@Composable
-fun help(){
-
-    //hacer boton help para aistenca
-    FloatingActionButton(onClick = { /*TODO*/ }) {
-        //Icon(painter = , contentDescription = )
     }
 }
