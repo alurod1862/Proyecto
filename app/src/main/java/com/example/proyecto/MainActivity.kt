@@ -27,7 +27,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.proyecto.model.LoginViewModel
 import com.example.proyecto.ui.theme.ProyectoTheme
-import com.example.proyecto.view.LocationComponent
 import com.example.proyecto.view.login
 import com.example.proyecto.view.options
 import com.example.proyecto.view.settings
@@ -46,9 +45,9 @@ class MainActivity : ComponentActivity() {
                 NavHost(navController = navController, startDestination = "login"){
                     composable("login"){ login(loginViewModel = loginViewModel, navController = navController)}
                     composable("options"){ options(loginViewModel = loginViewModel, navController = navController) }
-                    composable("settings"){settings(loginViewModel = loginViewModel)}
+                    composable("settings"){settings(loginViewModel = loginViewModel, navController = navController)}
                 }
-                LocationComponent(this)
+                loginViewModel.LocationComponent(this)
             }
         }
         requestLocationPermission()
