@@ -63,6 +63,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.6.0-alpha04")
     implementation("androidx.compose.runtime:runtime-livedata:1.3.2")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("com.google.android.gms:play-services-maps:17.0.1")
     implementation("com.google.android.gms:play-services-location:21.0.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

@@ -24,10 +24,12 @@ fun myBottomAppBar(loginViewModel: LoginViewModel){
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.background(MaterialTheme.colorScheme.primary).width(400.dp).height(80.dp)
+        modifier = Modifier
+            .background(MaterialTheme.colorScheme.primary)
+            .width(400.dp)
+            .height(80.dp)
     ){
         val location by loginViewModel.location.observeAsState(initial = "")
-
 
         Text(
             text = "Te encuentras en $location",
