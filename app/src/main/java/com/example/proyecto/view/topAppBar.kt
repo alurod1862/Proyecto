@@ -41,3 +41,13 @@ fun myTopAppBar(navController: NavController){
         )
     )
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun myTopAppBarOptions(option: String){
+    TopAppBar(
+        title = { Text(text = "$option", color = Color.White) },
+        colors = TopAppBarDefaults.largeTopAppBarColors(containerColor = MaterialTheme.colorScheme.primary
+        )
+    )
+}

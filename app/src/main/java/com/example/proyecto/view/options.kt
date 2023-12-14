@@ -43,31 +43,31 @@ fun options(loginViewModel: LoginViewModel, navController: NavController){
         Image(painter = painterResource(id = R.drawable.mapa_mundo_official), contentDescription = "mapa", modifier = Modifier
             .height(200.dp)
             .width(300.dp))
-        Button(onClick = { /*TODO*/ }, modifier = Modifier
+        Button(onClick = { navController.navigate("planificadorViaje") }, modifier = Modifier
             .padding(15.dp)
             .height(50.dp)
             .width(200.dp)) {
             Text(text = "Planificador de viaje", fontSize = 14.sp)
         }
-        Button(onClick = { /*TODO*/ }, modifier = Modifier
+        Button(onClick = { navController.navigate("conversorMoneda") }, modifier = Modifier
             .padding(15.dp)
             .height(50.dp)
             .width(200.dp)) {
             Text(text = "Conversor moneda", fontSize = 14.sp)
         }
-        Button(onClick = { /*TODO*/ }, modifier = Modifier
+        Button(onClick = { navController.navigate("calcularPropina") }, modifier = Modifier
             .padding(15.dp)
             .height(50.dp)
             .width(200.dp)) {
             Text(text = "Calculadora propina", fontSize = 14.sp)
         }
-        Button(onClick = { /*TODO*/ }, modifier = Modifier
+        Button(onClick = { navController.navigate("informacionDestino")}, modifier = Modifier
             .padding(15.dp)
             .height(50.dp)
             .width(200.dp)) {
             Text(text = "Informacion del destino", fontSize = 14.sp)
         }
-        Button(onClick = { /*TODO*/ }, modifier = Modifier
+        Button(onClick = { navController.navigate("historialViajes") }, modifier = Modifier
             .padding(15.dp)
             .height(50.dp)
             .width(200.dp)) {

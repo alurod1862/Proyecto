@@ -27,8 +27,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.proyecto.model.LoginViewModel
 import com.example.proyecto.ui.theme.ProyectoTheme
+import com.example.proyecto.view.calcularPropina
+import com.example.proyecto.view.conversorMoneda
+import com.example.proyecto.view.historialViajes
+import com.example.proyecto.view.informacionDestino
 import com.example.proyecto.view.login
 import com.example.proyecto.view.options
+import com.example.proyecto.view.planificadorViaje
 import com.example.proyecto.view.settings
 import com.google.android.gms.maps.model.LatLng
 import java.io.IOException
@@ -46,6 +51,12 @@ class MainActivity : ComponentActivity() {
                     composable("login"){ login(loginViewModel = loginViewModel, navController = navController)}
                     composable("options"){ options(loginViewModel = loginViewModel, navController = navController) }
                     composable("settings"){settings(loginViewModel = loginViewModel, navController = navController)}
+                    composable("planificadorViaje"){ planificadorViaje(navController) }
+                    composable("conversorMoneda"){conversorMoneda(navController)}
+                    composable("calcularPropina"){ calcularPropina(navController) }
+                    composable("informacionDestino"){informacionDestino(loginViewModel = loginViewModel, navController = navController)}
+                    composable("historialViajes"){historialViajes(loginViewModel = loginViewModel, navController = navController)}
+
                 }
                 loginViewModel.LocationComponent(this)
             }
