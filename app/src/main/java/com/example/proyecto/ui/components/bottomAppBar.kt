@@ -1,4 +1,4 @@
-package com.example.proyecto.view
+package com.example.proyecto.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.proyecto.model.LoginViewModel
+import com.example.proyecto.ui.viewmodels.LoginViewModel
 
 
 @Composable

@@ -1,4 +1,4 @@
-package com.example.proyecto.view
+package com.example.proyecto.ui.screens.login
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -38,12 +38,12 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.proyecto.model.LoginViewModel
+import com.example.proyecto.ui.viewmodels.LoginViewModel
 import com.example.proyecto.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun login(loginViewModel: LoginViewModel,navController: NavController) {
+fun login(loginViewModel: LoginViewModel, navController: NavController) {
 
     val user by loginViewModel.user.observeAsState(initial = "")
 

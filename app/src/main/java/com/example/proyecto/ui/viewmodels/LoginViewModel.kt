@@ -1,4 +1,4 @@
-package com.example.proyecto.model
+package com.example.proyecto.ui.viewmodels
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -10,7 +10,6 @@ import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -35,6 +34,9 @@ class LoginViewModel  : ViewModel() {
     private var _location = MutableLiveData("")
     val location: LiveData<String> = _location
 
+    private var _destination = MutableLiveData("")
+    val destination: LiveData<String> = _destination
+
     fun setLocation(location: String){
         _location.value = location
     }
@@ -46,6 +48,12 @@ class LoginViewModel  : ViewModel() {
     fun setPassword(password: String) {
         _password.value = password
     }
+
+    fun setDestination(destination: String) {
+        _destination.value = destination
+    }
+
+
 
     fun checkPassword(): Boolean {
             val password = _password.value
@@ -64,6 +72,11 @@ class LoginViewModel  : ViewModel() {
     fun checkUser(): Boolean {
         if (checkUser() && checkUser()){return true}
         return false
+    }
+
+
+    fun returnInfoDestination(destination: String): Boolean {
+        return destination == "Castellon"
     }
 
 

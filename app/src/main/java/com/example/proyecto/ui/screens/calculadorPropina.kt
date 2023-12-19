@@ -1,4 +1,4 @@
-package com.example.proyecto.view
+package com.example.proyecto.ui.screens
 
 
 import androidx.compose.foundation.background
@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.proyecto.ui.components.myTopAppBarOptions
 
 @Composable
 fun calcularPropina(navController: NavController){

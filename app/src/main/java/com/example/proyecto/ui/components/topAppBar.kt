@@ -1,4 +1,4 @@
-package com.example.proyecto.view
+package com.example.proyecto.ui.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack

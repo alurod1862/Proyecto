@@ -1,9 +1,7 @@
-package com.example.proyecto.view
+package com.example.proyecto.ui.screens
 
-import android.widget.RatingBar
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,8 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.text.TextDelegate.Companion.paint
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Star
@@ -27,26 +23,22 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.proyecto.model.LoginViewModel
+import com.example.proyecto.ui.components.myTopAppBarOptions
+import com.example.proyecto.ui.viewmodels.LoginViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun informacionDestino(navController: NavController,loginViewModel: LoginViewModel){
+fun valoracionDestino(navController: NavController,loginViewModel: LoginViewModel){
 
     Column(
         modifier = Modifier
@@ -55,7 +47,7 @@ fun informacionDestino(navController: NavController,loginViewModel: LoginViewMod
         horizontalAlignment = Alignment.CenterHorizontally,
         //verticalArrangement = Arrangement.Center
     ) {
-        myTopAppBarOptions(option = "Informacion del destino")
+        myTopAppBarOptions(option = "Valoracion destino visitado")
 
         Spacer(modifier = Modifier.size(20.dp))
         val location by loginViewModel.location.observeAsState(initial = "")
@@ -86,7 +78,7 @@ fun informacionDestino(navController: NavController,loginViewModel: LoginViewMod
             valoration(type = "Precio")
 
             Spacer(modifier = Modifier.size(30.dp))
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = { navController.navigate("historialViajes") }) {
                 Text(text = "Publicar")
             }
             
