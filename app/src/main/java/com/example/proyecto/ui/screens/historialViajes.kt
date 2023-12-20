@@ -93,3 +93,9 @@ fun data(data: String){
 
 
 }
+
+
+@Composable
+fun storeViajes(){
+
+}
