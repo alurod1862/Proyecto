@@ -25,11 +25,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.proyecto.ui.viewmodels.LoginViewModel
+import com.example.proyecto.ui.viewmodels.WorldViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun settings(loginViewModel: LoginViewModel, navController: NavController){
+fun settings(worldViewModel: WorldViewModel, navController: NavController){
     Column(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.background)
@@ -41,11 +41,11 @@ fun settings(loginViewModel: LoginViewModel, navController: NavController){
         Text(text = "Cambiar ubicacion", fontSize = 22.sp,color = MaterialTheme.colorScheme.primary)
 
         Spacer(modifier = Modifier.size(20.dp))
-        val location by loginViewModel.location.observeAsState(initial = "")
+        val location by worldViewModel.location.observeAsState(initial = "")
 
         TextField(
             value = location,
-            onValueChange = { loginViewModel.setLocation(it) },
+            onValueChange = { worldViewModel.setLocation(it) },
             label = { Text("Ubicacion") },
         )
 

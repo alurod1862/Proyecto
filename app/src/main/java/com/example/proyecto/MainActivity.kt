@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.proyecto.ui.viewmodels.LoginViewModel
+import com.example.proyecto.ui.viewmodels.WorldViewModel
 import com.example.proyecto.ui.theme.ProyectoTheme
 import com.example.proyecto.ui.screens.calcularPropina
 import com.example.proyecto.ui.screens.conversorMoneda
@@ -28,22 +28,22 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val loginViewModel = LoginViewModel()
+            val worldViewModel = WorldViewModel()
             ProyectoTheme {
                 val navController = rememberNavController()
                 NavHost(navController = navController, startDestination = "login"){
-                    composable("login"){ login(loginViewModel = loginViewModel, navController = navController) }
-                    composable("options"){ options(loginViewModel = loginViewModel, navController = navController) }
-                    composable("settings"){ settings(loginViewModel = loginViewModel, navController = navController) }
+                    composable("login"){ login(worldViewModel = worldViewModel, navController = navController) }
+                    composable("options"){ options(worldViewModel = worldViewModel, navController = navController) }
+                    composable("settings"){ settings(worldViewModel = worldViewModel, navController = navController) }
                     composable("planificadorViaje"){ planificadorViaje(navController) }
-                    composable("conversorMoneda"){ conversorMoneda(navController) }
-                    composable("calcularPropina"){ calcularPropina(navController) }
-                    composable("informacionDestino"){informacionDestino(loginViewModel = loginViewModel, navController = navController)}
-                    composable("historialViajes"){ historialViajes(loginViewModel = loginViewModel, navController = navController) }
-                    composable("valoracionDestino"){ valoracionDestino(loginViewModel = loginViewModel, navController = navController) }
+                    composable("conversorMoneda"){ conversorMoneda(navController,worldViewModel) }
+                    composable("calcularPropina"){ calcularPropina(navController,worldViewModel) }
+                    composable("informacionDestino"){informacionDestino(worldViewModel = worldViewModel, navController = navController)}
+                    composable("historialViajes"){ historialViajes(worldViewModel = worldViewModel, navController = navController) }
+                    composable("valoracionDestino"){ valoracionDestino(worldViewModel = worldViewModel, navController = navController) }
 
                 }
-                loginViewModel.LocationComponent(this)
+                worldViewModel.LocationComponent(this)
             }
         }
         requestLocationPermission()

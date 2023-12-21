@@ -16,11 +16,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.proyecto.ui.viewmodels.LoginViewModel
+import com.example.proyecto.ui.viewmodels.WorldViewModel
 
 
 @Composable
-fun myBottomAppBar(loginViewModel: LoginViewModel){
+fun myBottomAppBar(worldViewModel: WorldViewModel){
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -29,7 +29,7 @@ fun myBottomAppBar(loginViewModel: LoginViewModel){
             .width(400.dp)
             .height(80.dp)
     ){
-        val location by loginViewModel.location.observeAsState(initial = "")
+        val location by worldViewModel.location.observeAsState(initial = "")
 
         Text(
             text = "Te encuentras en $location",

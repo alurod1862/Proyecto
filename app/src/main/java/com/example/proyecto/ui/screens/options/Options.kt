@@ -22,11 +22,11 @@ import androidx.navigation.NavController
 import com.example.proyecto.R
 import com.example.proyecto.ui.components.myBottomAppBar
 import com.example.proyecto.ui.components.myTopAppBar
-import com.example.proyecto.ui.viewmodels.LoginViewModel
+import com.example.proyecto.ui.viewmodels.WorldViewModel
 
 
 @Composable
-fun options(loginViewModel: LoginViewModel, navController: NavController){
+fun options(worldViewModel: WorldViewModel, navController: NavController){
 
     Column(
         modifier = Modifier
@@ -74,7 +74,7 @@ fun options(loginViewModel: LoginViewModel, navController: NavController){
         Spacer(modifier = Modifier.size(30.dp))
 
 
-        myBottomAppBar(loginViewModel)
+        myBottomAppBar(worldViewModel)
     }
 }
 

@@ -38,16 +38,16 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.proyecto.ui.viewmodels.LoginViewModel
+import com.example.proyecto.ui.viewmodels.WorldViewModel
 import com.example.proyecto.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun login(loginViewModel: LoginViewModel, navController: NavController) {
+fun login(worldViewModel: WorldViewModel, navController: NavController) {
 
-    val user by loginViewModel.user.observeAsState(initial = "")
+    val user by worldViewModel.user.observeAsState(initial = "")
 
-    val password by loginViewModel.password.observeAsState(initial = "")
+    val password by worldViewModel.password.observeAsState(initial = "")
 
     var visible = true    /*loginViewModel.checkEmail() && loginViewModel.checkPassword()*/
 
@@ -73,7 +73,7 @@ fun login(loginViewModel: LoginViewModel, navController: NavController) {
         ) {
             TextField(
                 value = user,
-                onValueChange = { loginViewModel.setUser(it) },
+                onValueChange = { worldViewModel.setUser(it) },
                 label = { Text("Email") },
             )
         }
@@ -90,7 +90,7 @@ fun login(loginViewModel: LoginViewModel, navController: NavController) {
 
             TextField(
                 value = password,
-                onValueChange = { loginViewModel.setPassword(it) },
+                onValueChange = { worldViewModel.setPassword(it) },
                 label = { Text("Password") },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 visualTransformation = if (passwordVisibility) {

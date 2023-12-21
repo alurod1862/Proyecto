@@ -6,13 +6,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Star
@@ -33,17 +30,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.proyecto.ui.components.myTopAppBarOptions
-import com.example.proyecto.ui.viewmodels.LoginViewModel
+import com.example.proyecto.ui.viewmodels.WorldViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun valoracionDestino(navController: NavController,loginViewModel: LoginViewModel){
+fun valoracionDestino(navController: NavController, worldViewModel: WorldViewModel){
 
     Column(
         modifier = Modifier
@@ -55,11 +51,11 @@ fun valoracionDestino(navController: NavController,loginViewModel: LoginViewMode
         myTopAppBarOptions(option = "Valoracion destino visitado")
 
         Spacer(modifier = Modifier.size(20.dp))
-        val location by loginViewModel.location.observeAsState(initial = "")
+        val location by worldViewModel.location.observeAsState(initial = "")
 
         TextField(
             value = location,
-            onValueChange = { loginViewModel.setLocation(it) },
+            onValueChange = { worldViewModel.setLocation(it) },
             label = { Text("Ubicacion") },
         )
             Spacer(modifier = Modifier.size(50.dp))
@@ -80,8 +76,11 @@ fun valoracionDestino(navController: NavController,loginViewModel: LoginViewMode
             valoration(type = "Ocio")
 
 
+
+
         Spacer(modifier = Modifier.size(30.dp))
-        Button(onClick = { navController.navigate("historialViajes") }) {
+        Button(onClick = {
+        }) {
             Text(text = "Publicar")
         }
 
@@ -115,7 +114,9 @@ private fun valoration(type: String) {
 
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.width(180.dp).padding(bottom = 5.dp)
+            modifier = Modifier
+                .width(180.dp)
+                .padding(bottom = 5.dp)
 
         ) {
             Text(
@@ -145,8 +146,7 @@ fun RatingBar(
     maxRating: Int = 5,
     currentRating: Int,
     onRatingChanged: (Int) -> Unit,
-    starsColor: Color = Color.Yellow
-) {
+    starsColor: Color = Color.Yellow) {
     Row {
         for (i in 1..maxRating) {
             Icon(
@@ -164,6 +164,10 @@ fun RatingBar(
 }
 
 
+@Composable
+fun AddRating(note:Int){
+    Text(text = "a")
+}
 
 
 
