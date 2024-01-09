@@ -35,9 +35,23 @@ class WorldViewModel  : ViewModel() {
     private var _deposito1 = MutableLiveData("")
     val deposito1: LiveData<String> = _deposito1
 
+    private var _country = MutableLiveData("")
+    val country: LiveData<String> = _country
+
     private var _deposito2 = MutableLiveData("")
     val deposito2: LiveData<String> = _deposito2
 
+    private var _city = MutableLiveData("")
+    val city: LiveData<String> = _city
+
+    private var _idiom = MutableLiveData("")
+    val idiom: LiveData<String> = _idiom
+
+    private var _days = MutableLiveData("")
+    val days: LiveData<String> = _days
+
+    private var _valoration = MutableLiveData("")
+    val valoration: LiveData<String> = _valoration
 
     fun setLocation(location: String){
         _location.value = location
@@ -71,6 +85,27 @@ class WorldViewModel  : ViewModel() {
         _deposito2.value = deposito2
     }
 
+    fun setCountry(country: String){
+        _country.value = country
+    }
+
+    fun setCity(city: String){
+        _city.value = city
+    }
+
+    fun setIdiom(idiom: String){
+        _idiom.value = idiom
+    }
+
+    fun setDays(days: String){
+        _days.value = days
+    }
+
+    fun setValoration(valoration: String){
+        _valoration.value = valoration
+    }
+
+
     fun checkPassword(): Boolean {
             val password = _password.value
             if (password != null) {
@@ -99,6 +134,13 @@ class WorldViewModel  : ViewModel() {
 
         var operation = deposit
         operation = (deposit.toInt() * (1.07)).toString()
+        return operation
+    }
+
+    fun returnTip(tip: String): String{
+
+        var operation = tip
+        operation = (tip.toInt() * (0.20)).toString()
         return operation
     }
 

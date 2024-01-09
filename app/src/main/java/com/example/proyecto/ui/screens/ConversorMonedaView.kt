@@ -82,9 +82,6 @@ private fun conversor(worldViewModel: WorldViewModel) {
 
     val deposito1 by worldViewModel.deposito1.observeAsState("0")
 
-    val deposito2 by worldViewModel.deposito2.observeAsState("0")
-
-
 
     TextField(
         value = divisa1,

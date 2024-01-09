@@ -2,6 +2,7 @@ package com.example.proyecto
 
 
 import android.Manifest
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -15,6 +16,7 @@ import com.example.proyecto.ui.viewmodels.WorldViewModel
 import com.example.proyecto.ui.theme.ProyectoTheme
 import com.example.proyecto.ui.screens.calcularPropina
 import com.example.proyecto.ui.screens.conversorMoneda
+import com.example.proyecto.ui.screens.editarViaje
 import com.example.proyecto.ui.screens.historialViajes
 import com.example.proyecto.ui.screens.informacionDestino
 import com.example.proyecto.ui.screens.login.login
@@ -27,20 +29,23 @@ class MainActivity : ComponentActivity() {
     private val MY_PERMISSIONS_REQUEST_LOCATION = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
         setContent {
             val worldViewModel = WorldViewModel()
             ProyectoTheme {
                 val navController = rememberNavController()
                 NavHost(navController = navController, startDestination = "login"){
-                    composable("login"){ login(worldViewModel = worldViewModel, navController = navController) }
-                    composable("options"){ options(worldViewModel = worldViewModel, navController = navController) }
-                    composable("settings"){ settings(worldViewModel = worldViewModel, navController = navController) }
-                    composable("planificadorViaje"){ planificadorViaje(navController) }
+                    composable("login"){ login(worldViewModel,navController) }
+                    composable("options"){ options(worldViewModel,navController) }
+                    composable("settings"){ settings(worldViewModel,navController) }
+                    composable("planificadorViaje"){ planificadorViaje(navController,worldViewModel)}
                     composable("conversorMoneda"){ conversorMoneda(navController,worldViewModel) }
                     composable("calcularPropina"){ calcularPropina(navController,worldViewModel) }
-                    composable("informacionDestino"){informacionDestino(worldViewModel = worldViewModel, navController = navController)}
-                    composable("historialViajes"){ historialViajes(worldViewModel = worldViewModel, navController = navController) }
-                    composable("valoracionDestino"){ valoracionDestino(worldViewModel = worldViewModel, navController = navController) }
+                    composable("informacionDestino"){informacionDestino(worldViewModel,navController)}
+                    composable("historialViajes"){ historialViajes(navController,worldViewModel) }
+                    composable("valoracionDestino"){ valoracionDestino(navController,worldViewModel) }
+                    composable("editarViaje"){ editarViaje(navController,worldViewModel) }
 
                 }
                 worldViewModel.LocationComponent(this)

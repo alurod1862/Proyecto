@@ -15,6 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -48,11 +49,27 @@ fun historialViajes(navController: NavController, worldViewModel: WorldViewModel
         Column{
             Spacer(modifier = Modifier.size(50.dp))
 
-            data("Pais")
+            TextField(
+                value = "",
+                onValueChange = { (it) },
+                label = { Text("Pais") },
+            )
+            Spacer(modifier = Modifier.size(20.dp))
 
-            data("Ciudad")
+            TextField(
+                value = "",
+                onValueChange = { (it) },
+                label = { Text("Ciudad") },
+            )
+            Spacer(modifier = Modifier.size(20.dp))
 
-            data("Dias")
+
+            TextField(
+                value = "",
+                onValueChange = { (it) },
+                label = { Text("Dias") },
+            )
+            Spacer(modifier = Modifier.size(20.dp))
 
             Button(onClick = {
                 navController.navigate("valoracionDestino")
@@ -78,17 +95,6 @@ fun historialViajes(navController: NavController, worldViewModel: WorldViewModel
             containerColor = Color(0xFF6AB7FF),
         )
     }
-}
-
-
-@Composable
-fun data(data: String){
-    TextField(
-        value = "",
-        onValueChange = { (it) },
-        label = { Text("$data") },
-    )
-    Spacer(modifier = Modifier.size(20.dp))
 }
 
 
